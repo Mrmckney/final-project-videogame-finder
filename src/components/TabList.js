@@ -1,0 +1,27 @@
+import { Tabs, Tab } from 'react-bootstrap'
+
+import TopGames from './TopGames';
+import Trending from './Trending';
+import Favorites from './Favorites';
+import ByGenre from './ByGenre';
+
+function TabList() {
+  return (
+    <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
+      <Tab eventKey="topgames" title="Top Games">
+        <TopGames />
+      </Tab>
+      <Tab eventKey="trending" title="Trending">
+        <Trending />
+      </Tab>
+      <Tab eventKey="favorite" title="My Favorites">
+        <Favorites />
+      </Tab>
+      <Tab eventKey="genre" title="By Genre">
+        <ByGenre />
+      </Tab>
+    </Tabs>
+  );
+}
+
+export default TabList
