@@ -5,9 +5,11 @@ import Trending from './Trending';
 import Favorites from './Favorites';
 import ByGenre from './ByGenre';
 
+import '../App.css'
+
 function TabList() {
   return (
-    <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
+    <Tabs defaultActiveKey="list" id="uncontrolled-tab-example" className="mb-3 tab-list">
       <Tab eventKey="topgames" title="Top Games">
         <TopGames />
       </Tab>
