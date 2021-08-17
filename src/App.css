@@ -2,3 +2,8 @@
     margin: 10px;
     font-size: x-large;
 }
+
+.genre-dropdown {
+    float: left;
+    padding-left: 24px;
+}

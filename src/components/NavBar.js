@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { Navbar, Container, NavDropdown, Nav } from 'react-bootstrap'
 import Login from './Login'
-import '../App.css'
 
 function NavBar() {
     const [show, setShow] = useState(false)
     const [isLogin, setIsLogin] = useState(false)
 
     const handleClose = () => setShow(false)
+    
     return(
         <>
         <Navbar>
