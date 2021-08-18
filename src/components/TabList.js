@@ -14,11 +14,11 @@ function TabList() {
       <Tab eventKey="trending" title="Trending">
         <GameList />
       </Tab>
-      <Tab eventKey="favorite" title="My Favorites">
-        <GameList />
-      </Tab>
       <Tab eventKey="genre" title="By Genre">
         <ByGenre />
+        <GameList />
+      </Tab>
+      <Tab eventKey="favorite" title="My Favorites">
         <GameList />
       </Tab>
     </Tabs>

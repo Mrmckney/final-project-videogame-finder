@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Navbar, Container, NavDropdown, Nav } from 'react-bootstrap'
+import { Navbar, Container, NavDropdown, Nav, Form, FormControl, Button } from 'react-bootstrap'
 import Login from './Login'
 import logo from '../image/Dog-Logo.png'
 
@@ -21,6 +21,15 @@ function NavBar() {
                 </Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
+                    <Form className="d-flex search-bar">
+                        <FormControl
+                            type="search"
+                            placeholder="Search games here"
+                            className="mr-2"
+                            aria-label="Search"
+                        />
+                        <Button variant="outline-dark">Search</Button>
+                    </Form>
                     <Nav>
                         <NavDropdown
                             title={
