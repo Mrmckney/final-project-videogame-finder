@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Navbar, Container, NavDropdown, Nav } from 'react-bootstrap'
 import Login from './Login'
+import logo from '../image/Dog-Logo.png'
 
 function NavBar() {
     const [show, setShow] = useState(false)
@@ -12,7 +13,12 @@ function NavBar() {
         <>
         <Navbar>
             <Container fluid>
-                <Navbar.Brand href="/"><h1>Logo</h1></Navbar.Brand>
+                <Navbar.Brand href="/">
+                    <img className="logo-size" src={logo} alt="Dog with disk in mouth"/> 
+                </Navbar.Brand>
+                <Navbar.Brand>
+                    <h1 className="title">Game Retriever</h1>
+                </Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
                     <Nav>
