@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Tabs, Tab } from 'react-bootstrap'
 
 import ByGenre from './ByGenre';
@@ -10,12 +10,13 @@ import { UserDetailsContext } from '../App'
 
 function TabList() {
 
+  const [route, setRoute] = useState(null)
   const {user} = useContext(UserDetailsContext)
 
   return (
     <Tabs defaultActiveKey="list" id="uncontrolled-tab-example" className="mb-3 tab-list">
       <Tab eventKey="topgames" title="Top Games">
-        <GameList />
+        <GameList route={route} setRoute={setRoute}/>
       </Tab>
       <Tab eventKey="toprated" title="Top Rated">
         <GameList />
