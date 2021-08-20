@@ -1,9 +1,12 @@
-import { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Navbar, Container, NavDropdown, Nav, Form, FormControl, Button } from 'react-bootstrap'
 import Login from './Login'
 import logo from '../image/Dog-Logo.png'
+import { UserDetailsContext } from '../App'
 
 function NavBar() {
+
+    const {user, setUser} = useContext(UserDetailsContext)
     const [show, setShow] = useState(false)
     const [isLogin, setIsLogin] = useState(false)
 
@@ -42,7 +45,9 @@ function NavBar() {
                             id="nav-dropdown-dark-example"
                             menuVariant="dark"
                         >
-                            
+                           {!user 
+                           ?
+                           <>
                             <NavDropdown.Item onClick={() => {
                                 setIsLogin(true)
                                 setShow(true)
@@ -58,22 +63,17 @@ function NavBar() {
                             >
                                 SignUp
                             </NavDropdown.Item>
-                            
-                            {/* <NavDropdown.Item onClick={() => {
-                                setIsLogin(true)
-                                setShow(false)
-                            }}
-                            >
-                                Profile
-                            </NavDropdown.Item>
-                            <NavDropdown.Divider />
+                            </>
+                            :
+                            <>
                             <NavDropdown.Item onClick={() => {
-                                setIsLogin(false)
-                                setShow(false)
+                                setUser(null)
                             }}
                             >
                                 Logout
-                            </NavDropdown.Item> */}
+                            </NavDropdown.Item>
+                            </>
+                            }
                             
                         </NavDropdown>
                     </Nav>
