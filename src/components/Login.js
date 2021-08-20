@@ -1,6 +1,9 @@
+import bcrypt from 'bcryptjs'
 import React, { useContext, useState } from 'react'
 import { Modal, Button, FloatingLabel, Form } from 'react-bootstrap'
 import { UserDetailsContext } from '../App'
+
+const mySalt = "$2a$10$Y5H9Mw5WmFVDB46qEhCU0u"
 
 function Login({show, isLogin, handleClose}) {
 
@@ -8,29 +11,39 @@ function Login({show, isLogin, handleClose}) {
     const [userCreds, setUserCreds] = useState(null)
     
     const handleSignIn = () => {
+        const {username, password} = userCreds
+        const hashedPassword = bcrypt.hashSync(password, mySalt)
         fetch('http://localhost:5000/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(userCreds)
+            body: JSON.stringify({username, password: hashedPassword})
         })
         .then(response => response.json())
-        .then(data => setUser(data))
+        .then(data => {
+            if(data.status !== 200){
+                alert(data.message)
+                return
+            }
+            setUser(data.token)
+        })
         .then(() => handleClose(false))
         .catch(err => alert(err))
     }
 
     const handleSignUp = () => {
+        const {username, password} = userCreds
+        const hashedPassword = bcrypt.hashSync(password, mySalt)
         fetch('http://localhost:5000/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(userCreds)
+            body: JSON.stringify({username, password: hashedPassword})
         })
         .then(response => response.json())
-        .then(data => setUser(data))
+        .then(data => setUser(data.token))
         .then(() => handleClose(false))
         .catch(err => alert(err))
     }
