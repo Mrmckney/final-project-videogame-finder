@@ -11,10 +11,12 @@ export const UserDetailsContext = createContext(null)
 function App() {
 
   const [user, setUser] = useState(null)
+  const [isLogin, setIsLogin] = useState(false)
+  const [show, setShow] = useState(false)
 
   return (
     <>
-      <UserDetailsContext.Provider value={{ user, setUser }}>
+      <UserDetailsContext.Provider value={{ user, setUser, show, setShow, isLogin, setIsLogin }}>
       <NavBar  />
       <TabList />
       </UserDetailsContext.Provider>

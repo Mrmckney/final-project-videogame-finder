@@ -26,13 +26,16 @@ function TabList() {
       <Tab eventKey="toprated" title="Top Rated">
         <GameList route={route} />
       </Tab>
+      <Tab eventKey="futurereleases" title="Future Releases">
+        <GameList route={route} />
+      </Tab>
       <Tab eventKey="genre" title="By Genre">
         <ByGenre />
       </Tab>
       {!user  
-      ?<Tab eventKey="favorite" title="My Favorites" disabled={true}>
+      ?<Tab eventKey="favorites" title="My Favorites" disabled={true}>
       </Tab>
-      :<Tab eventKey="favorite" title="My Favorites">
+      :<Tab eventKey="favorites" title="My Favorites">
         <GameList route={route} />
       </Tab>
       }

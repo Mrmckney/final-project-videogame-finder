@@ -5,8 +5,8 @@ import { UserDetailsContext } from '../App'
 
 const mySalt = "$2a$10$Y5H9Mw5WmFVDB46qEhCU0u"
 
-function Login({show, isLogin, handleClose}) {
-
+function Login({isLogin, handleClose, show}) {
+    
     const {setUser} = useContext(UserDetailsContext)
     const [userCreds, setUserCreds] = useState(null)
     

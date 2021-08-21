@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Navbar, Container, NavDropdown, Nav, Form, FormControl, Button } from 'react-bootstrap'
 import Login from './Login'
 import logo from '../image/Dog-Logo.png'
@@ -6,9 +6,9 @@ import { UserDetailsContext } from '../App'
 
 function NavBar() {
 
-    const {user, setUser} = useContext(UserDetailsContext)
-    const [show, setShow] = useState(false)
-    const [isLogin, setIsLogin] = useState(false)
+    const {user, setUser, show, setShow, isLogin, setIsLogin} = useContext(UserDetailsContext)
+    // const [show, setShow] = useState(false)
+    // const [isLogin, setIsLogin] = useState(false)
 
     const handleClose = () => setShow(false)
     
