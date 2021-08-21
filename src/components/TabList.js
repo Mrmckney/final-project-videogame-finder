@@ -14,22 +14,26 @@ function TabList() {
   const {user} = useContext(UserDetailsContext)
 
   return (
-    <Tabs defaultActiveKey="list" id="uncontrolled-tab-example" className="mb-3 tab-list">
+    <Tabs defaultActiveKey="list"
+      id="uncontrolled-tab-example"
+      onSelect={key => {
+        setRoute(key)
+      }}
+      className="mb-3 tab-list">
       <Tab eventKey="topgames" title="Top Games">
-        <GameList route={route} setRoute={setRoute}/>
+        <GameList route={route} />
       </Tab>
       <Tab eventKey="toprated" title="Top Rated">
-        <GameList />
+        <GameList route={route} />
       </Tab>
       <Tab eventKey="genre" title="By Genre">
         <ByGenre />
-        <GameList />
       </Tab>
       {!user  
       ?<Tab eventKey="favorite" title="My Favorites" disabled={true}>
       </Tab>
       :<Tab eventKey="favorite" title="My Favorites">
-        <GameList />
+        <GameList route={route} />
       </Tab>
       }
     </Tabs>

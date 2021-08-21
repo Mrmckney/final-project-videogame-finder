@@ -21,3 +21,17 @@
     height: 50px;
     margin-right: 100px;
 }
+
+.card {
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 60px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.button-star {
+    height: 40px;
+    margin-top: 28px;
+    margin-right: 24px;
+}
