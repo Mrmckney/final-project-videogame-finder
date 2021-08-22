@@ -29,11 +29,11 @@ function TabList() {
       <Tab eventKey="futurereleases" title="Future Releases">
         <GameList route={route} />
       </Tab>
-      <Tab eventKey="genre" title="By Genre">
+      <Tab eventKey="alphabet" title="By Genre">
         <ByGenre />
         <br />
         <br />
-        <GameList />
+        <GameList route={route} />
       </Tab>
       {!user  
       ?<Tab eventKey="favorites" title="My Favorites" disabled={true}>

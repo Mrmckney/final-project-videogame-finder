@@ -7,8 +7,6 @@ import { UserDetailsContext } from '../App'
 function NavBar() {
 
     const {user, setUser, show, setShow, isLogin, setIsLogin} = useContext(UserDetailsContext)
-    // const [show, setShow] = useState(false)
-    // const [isLogin, setIsLogin] = useState(false)
 
     const handleClose = () => setShow(false)
     

@@ -13,7 +13,7 @@ function App() {
   const [user, setUser] = useState(null)
   const [isLogin, setIsLogin] = useState(false)
   const [show, setShow] = useState(false)
-  const [gameData, setGameData] = useState(null)
+  const [gameData, setGameData] = useState('')
 
   return (
     <>

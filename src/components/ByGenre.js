@@ -10,7 +10,7 @@ function ByGenre() {
     const [genre, setGenre] = useState(null)
 
     useEffect(() => {
-        if(genre !== undefined){
+        if(genre !== null){
             fetch(`http://localhost:5000/${genre}`)
             .then(response => response.json())
             .then(game => setGameData(game))

@@ -7,7 +7,7 @@ function GameList({route}) {
     const {user, setShow, setIsLogin, gameData, setGameData} = useContext(UserDetailsContext)
 
     useEffect(() => {
-        if(route !== 'genre') {
+        if(route !== null) {
             fetch(`http://localhost:5000/${route}`)
             .then(response => response.json())
             .then(data => setGameData(data))
