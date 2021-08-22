@@ -19,18 +19,18 @@ function GameList({route}) {
         return <h1>Loading...</h1>
     }
 
-    const handleFavorite = () => {
-        // fetch('http://localhost:5000/addfav', {
-        //     method: 'PATCH',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         Authorization: `Bearer: ${token}`
-        //     },
-        //     body: JSON.stringify()
-        // })
-        // .then(response => response.json())
-        // .then(data => )
-        // .catch(err => alert(err))
+    const handleFavorite = (e) => {
+        fetch('http://localhost:5000/addfav', {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer: ${user}`
+            },
+            body: JSON.stringify(e)
+        })
+        .then(response => response.json())
+        .then(data => alert(data.message))
+        .catch(err => alert(err))
     }
 
     const handleSignInFav = () => {
@@ -81,7 +81,7 @@ function GameList({route}) {
                         :
                         <Button 
                             variant="warning" 
-                            onClick={handleFavorite}
+                            onClick={() => handleFavorite(game)}
                         >
                             Favorite
                         </Button>
