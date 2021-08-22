@@ -1,17 +1,22 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
 import { Dropdown } from 'react-bootstrap'
 import '../App.css'
+import { UserDetailsContext } from '../App'
 
 function ByGenre() {
+
+    const {setGameData} = useContext(UserDetailsContext)
 
     const [genre, setGenre] = useState(null)
 
     useEffect(() => {
-            // fetch(`http://localhost:5000/${genre}`)
-            // .then(response => response.json())
-            // .then(data => setGameData(data))
-            // .catch(err => alert(err))
-    }, [genre])
+        if(genre !== undefined){
+            fetch(`http://localhost:5000/${genre}`)
+            .then(response => response.json())
+            .then(game => setGameData(game))
+            .catch(err => alert(err))
+        }
+    }, [genre, setGameData])
 
     return(
         <>
@@ -20,16 +25,14 @@ function ByGenre() {
                     Genre
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu onChange={e => setGenre(e.target.value)}>
+                <Dropdown.Menu onClick={e => setGenre(e.target.getAttribute("value"))}>
                     <Dropdown.Item value="bygenre/Action">Action</Dropdown.Item>
                     <Dropdown.Item value="bygenre/Sports">Sports</Dropdown.Item>
                     <Dropdown.Item value="bygenre/Adventure">Adventure</Dropdown.Item>
-                    <Dropdown.Item value="bygenre/Battle">Battle Royale</Dropdown.Item>
                     <Dropdown.Item value="bygenre/RPG">RPG (Role Playing Games)</Dropdown.Item>
                     <Dropdown.Item value="bygenre/Racing">Racing</Dropdown.Item>
                     <Dropdown.Item value="bygenre/Fighting">Fighting</Dropdown.Item>
                     <Dropdown.Item value="bygenre/Simulation">Simulation</Dropdown.Item>
-                    <Dropdown.Item value="bygenre/FPS">FPS (First Person Shooter)</Dropdown.Item>
                     <Dropdown.Item value="bygenre/Puzzle">Puzzle</Dropdown.Item>
                     <Dropdown.Item value="bygenre/Shooter">Shooter</Dropdown.Item>
                     <Dropdown.Item value="bygenre/Strategy">Strategy</Dropdown.Item>
@@ -37,7 +40,7 @@ function ByGenre() {
                     <Dropdown.Item value="bygenre/Platformer">Platformer</Dropdown.Item>
                     <Dropdown.Item value="bygenre/Fighting">Fighting</Dropdown.Item>
                     <Dropdown.Item value="bygenre/Arcade">Arcade</Dropdown.Item>
-                    <Dropdown.Item value="bygenre/MMO">MMO (Massively Multiplayer Online)</Dropdown.Item>
+                    <Dropdown.Item value="bygenre/Massively Multiplayer">MMO (Massively Multiplayer Online)</Dropdown.Item>
                     <Dropdown.Item value="bygenre/Casual">Casual</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>

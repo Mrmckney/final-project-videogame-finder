@@ -13,10 +13,11 @@ function App() {
   const [user, setUser] = useState(null)
   const [isLogin, setIsLogin] = useState(false)
   const [show, setShow] = useState(false)
+  const [gameData, setGameData] = useState(null)
 
   return (
     <>
-      <UserDetailsContext.Provider value={{ user, setUser, show, setShow, isLogin, setIsLogin }}>
+      <UserDetailsContext.Provider value={{ user, setUser, show, setShow, isLogin, setIsLogin, gameData, setGameData }}>
       <NavBar  />
       <TabList />
       </UserDetailsContext.Provider>

@@ -31,6 +31,9 @@ function TabList() {
       </Tab>
       <Tab eventKey="genre" title="By Genre">
         <ByGenre />
+        <br />
+        <br />
+        <GameList />
       </Tab>
       {!user  
       ?<Tab eventKey="favorites" title="My Favorites" disabled={true}>

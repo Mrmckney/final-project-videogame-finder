@@ -1,19 +1,19 @@
-import React, { useEffect, useState, useContext } from "react"
+import React, { useEffect, useContext } from "react"
 import { Button, Card } from "react-bootstrap"
 import { UserDetailsContext } from '../App'
 
 function GameList({route}) {
 
-    const {user, setShow, setIsLogin} = useContext(UserDetailsContext)
-    const [gameData, setGameData] = useState(null)
+    const {user, setShow, setIsLogin, gameData, setGameData} = useContext(UserDetailsContext)
 
     useEffect(() => {
-        if(route !== 'genre')
+        if(route !== 'genre') {
             fetch(`http://localhost:5000/${route}`)
             .then(response => response.json())
             .then(data => setGameData(data))
             .catch(err => alert(err))
-    }, [route])
+        }
+    }, [route, setGameData])
 
     if(!gameData) {
         return <h1>Loading...</h1>
