@@ -8,18 +8,36 @@ function GameList({route}) {
 
     useEffect(() => {
         if(route !== null) {
-            fetch(`http://localhost:5000/${route}`)
-            .then(response => response.json())
-            .then(data => setGameData(data))
-            .catch(err => alert(err))
+            if(route === 'favorites' && user) {
+                fetch(`http://localhost:5000/${route}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application',
+                        Authorization: `Bearer: ${user}`
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    setGameData(data.favorites)
+                })
+                .catch(err => alert(err))
+            } else {
+                fetch(`http://localhost:5000/${route}`)
+                .then(response => response.json())
+                .then(data => {
+                    setGameData(data)
+                })
+                .catch(err => alert(err))
+            }
         }
-    }, [route, setGameData])
+    }, [route, setGameData, user])
 
     if(!gameData) {
         return <h1>Loading...</h1>
     }
 
     const handleFavorite = (e) => {
+        console.log(e)
         fetch('http://localhost:5000/addfav', {
             method: 'PATCH',
             headers: {

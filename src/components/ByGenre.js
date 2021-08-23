@@ -38,7 +38,6 @@ function ByGenre() {
                     <Dropdown.Item value="bygenre/Strategy">Strategy</Dropdown.Item>
                     <Dropdown.Item value="bygenre/Indie">Indie</Dropdown.Item>
                     <Dropdown.Item value="bygenre/Platformer">Platformer</Dropdown.Item>
-                    <Dropdown.Item value="bygenre/Fighting">Fighting</Dropdown.Item>
                     <Dropdown.Item value="bygenre/Arcade">Arcade</Dropdown.Item>
                     <Dropdown.Item value="bygenre/Massively Multiplayer">MMO (Massively Multiplayer Online)</Dropdown.Item>
                     <Dropdown.Item value="bygenre/Casual">Casual</Dropdown.Item>
