@@ -1,10 +1,11 @@
-import React, { useEffect, useContext } from "react"
+import React, { useEffect, useContext} from "react"
 import { Button, Card } from "react-bootstrap"
 import { UserDetailsContext } from '../App'
+import Favorites from "./Favorites"
 
 function GameList({route}) {
 
-    const {user, setShow, setIsLogin, gameData, setGameData} = useContext(UserDetailsContext)
+    const {user, setShow, setIsLogin, gameData, setGameData, favData, setFavData} = useContext(UserDetailsContext)
 
     useEffect(() => {
         if(route !== null) {
@@ -18,7 +19,7 @@ function GameList({route}) {
                 })
                 .then(response => response.json())
                 .then(data => {
-                    setGameData(data.favorites)
+                    setFavData(data.favorites)
                 })
                 .catch(err => alert(err))
             } else {
@@ -30,14 +31,13 @@ function GameList({route}) {
                 .catch(err => alert(err))
             }
         }
-    }, [route, setGameData, user])
+    }, [route, user, setGameData, setFavData])
 
     if(!gameData) {
         return <h1>Loading...</h1>
     }
 
     const handleFavorite = (e) => {
-        console.log(e)
         fetch('http://localhost:5000/addfav', {
             method: 'PATCH',
             headers: {
@@ -47,7 +47,9 @@ function GameList({route}) {
             body: JSON.stringify(e)
         })
         .then(response => response.json())
-        .then(data => alert(data.message))
+        .then(data => {
+            alert(data.message)
+        })
         .catch(err => alert(err))
     }
 
@@ -58,7 +60,11 @@ function GameList({route}) {
 
     return (
         <>
-        {gameData.map(games => {
+        {favData
+        ? 
+        <Favorites favData={favData} />
+        :
+        gameData.map(games => {
             const game = games
             return (
                 <>
@@ -69,18 +75,25 @@ function GameList({route}) {
                         <Card.Text>
                             <p>
                                 <b>Genres:</b> 
-                                <br />{game.genres.join(' | ')}
+                                <br />
+                                {game.genres.join(' | ')}
                             </p>
+                        </Card.Text>
+                        <Card.Text>
                             <p>
                                 <b>Release Date:</b> 
                                 <br />
                                 {game.releaseDate}
                             </p>
+                        </Card.Text>
+                        <Card.Text>
                             <p>
                                 <b>Rating:</b> 
-                                <br/>
+                                <br />
                                 ⭐️{game.rating}
                             </p>
+                        </Card.Text>
+                        <Card.Text>
                             <p>
                                 <b>Platforms:</b> 
                                 <br />

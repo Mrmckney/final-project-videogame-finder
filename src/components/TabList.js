@@ -11,17 +11,20 @@ import { UserDetailsContext } from '../App'
 function TabList() {
 
   const [route, setRoute] = useState(null)
-  const {user} = useContext(UserDetailsContext)
+  const {user, favData, setFavData} = useContext(UserDetailsContext)
 
   return (
     <Tabs defaultActiveKey="list"
       id="uncontrolled-tab-example"
       onSelect={key => {
         setRoute(key)
+        if(key !== "favorites"){
+          setFavData('')
+        }
       }}
       className="mb-3 tab-list">
       <Tab eventKey="topgames" title="Top Games">
-        <GameList route={route} />
+        <GameList route={route} favData={favData} setFavData={setFavData} />
       </Tab>
       <Tab eventKey="toprated" title="Top Rated">
         <GameList route={route} />
@@ -35,13 +38,9 @@ function TabList() {
         <br />
         <GameList route={route} />
       </Tab>
-      {!user  
-      ?<Tab eventKey="favorites" title="My Favorites" disabled={true}>
+      <Tab eventKey="favorites" title="My Favorites" disabled={!user}>
+        {user && <GameList route={route} />}
       </Tab>
-      :<Tab eventKey="favorites" title="My Favorites">
-        <GameList route={route} />
-      </Tab>
-      }
     </Tabs>
   );
 }

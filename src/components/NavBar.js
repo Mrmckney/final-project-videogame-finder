@@ -14,7 +14,7 @@ function NavBar() {
         <>
         <Navbar>
             <Container fluid>
-                <Navbar.Brand href="/">
+                <Navbar.Brand>
                     <img className="logo-size" src={logo} alt="Dog with disk in mouth"/> 
                 </Navbar.Brand>
                 <Navbar.Brand>
@@ -72,7 +72,6 @@ function NavBar() {
                             </NavDropdown.Item>
                             </>
                             }
-                            
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
