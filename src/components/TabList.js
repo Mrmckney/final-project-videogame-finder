@@ -24,22 +24,22 @@ function TabList() {
       }}
       className="mb-3 tab-list">
       <Tab eventKey="topgames" title="Top Games">
-        <GameList route={route} favData={favData} setFavData={setFavData} />
+        {route === 'topgames' &&<GameList route={route} favData={favData} setFavData={setFavData} />}
       </Tab>
       <Tab eventKey="toprated" title="Top Rated">
-        <GameList route={route} />
+      {route === 'toprated' && <GameList route={route} favData={favData} setFavData={setFavData} />}
       </Tab>
       <Tab eventKey="futurereleases" title="Future Releases">
-        <GameList route={route} />
+      {route === 'futurereleases' && <GameList route={route} /> }
       </Tab>
       <Tab eventKey="alphabet" title="By Genre">
         <ByGenre />
         <br />
         <br />
-        <GameList route={route} />
+        {route === 'alphabet' &&  <GameList route={route} />}
       </Tab>
       <Tab eventKey="favorites" title="My Favorites" disabled={!user}>
-         <GameList route={route} />
+      {route === 'favorites' &&  <GameList route={route} />}
       </Tab>
     </Tabs>
   );

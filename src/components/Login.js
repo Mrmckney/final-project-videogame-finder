@@ -27,6 +27,7 @@ function Login({isLogin, handleClose, show}) {
                 return
             }
             setUser(data.token)
+            localStorage.setItem('user', data.token)
         })
         .then(() => handleClose(false))
         .catch(err => alert(err))
@@ -43,7 +44,10 @@ function Login({isLogin, handleClose, show}) {
             body: JSON.stringify({username, password: hashedPassword})
         })
         .then(response => response.json())
-        .then(data => setUser(data.token))
+        .then(data => {
+            setUser(data.token)
+            localStorage.setItem('user', data.token)
+        })
         .then(() => handleClose(false))
         .catch(err => alert(err))
     }

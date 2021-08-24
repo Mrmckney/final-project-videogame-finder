@@ -66,6 +66,7 @@ function NavBar() {
                             <>
                             <NavDropdown.Item onClick={() => {
                                 setUser(null)
+                                localStorage.clear()
                             }}
                             >
                                 Logout

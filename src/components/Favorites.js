@@ -21,41 +21,42 @@ function Favorites({favData, user, setFavData}) {
     }
     return(
         <>
-        {favData.map(games => {
+        {favData &&
+        favData.map((games, i) => {
             const game = games
             return (
                 <>
-                <Card style={{ width: '18rem', height: '620px' ,float: 'left' }}>
+                <Card style={{ width: '18rem', height: '620px' ,float: 'left' }} key={i}>
                     <Card.Img variant="top" src={game.poster} alt="Image Coming Soon..." style={{width: '100%', height: 150}} />
                     <Card.Body>
                         <Card.Title>{game.name}</Card.Title>
                         <Card.Text>
-                            <p>
+                            <span>
                                 <b>Genres:</b> 
                                 <br />
                                 {game.genres.join(' | ')}
-                            </p>
+                            </span>
                         </Card.Text>
                         <Card.Text>
-                            <p>
+                            <span>
                                 <b>Release Date:</b> 
                                 <br />
                                 {game.releaseDate}
-                            </p>
+                            </span>
                         </Card.Text>
                         <Card.Text>
-                            <p>
+                            <span>
                                 <b>Rating:</b> 
                                 <br />
                                 ⭐️{game.rating}
-                            </p>
+                            </span>
                         </Card.Text>
                         <Card.Text>
-                            <p>
+                            <span>
                                 <b>Platforms:</b> 
                                 <br />
                                 {game.platforms.join(' | ')}
-                            </p>
+                            </span>
                         </Card.Text>
                         <Button 
                             variant="danger" 
