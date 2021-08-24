@@ -17,10 +17,10 @@ function TabList() {
     <Tabs defaultActiveKey="list"
       id="uncontrolled-tab-example"
       onSelect={key => {
-        setRoute(key)
         if(key !== "favorites"){
           setFavData('')
         }
+        setRoute(key)
       }}
       className="mb-3 tab-list">
       <Tab eventKey="topgames" title="Top Games">
@@ -39,7 +39,7 @@ function TabList() {
         <GameList route={route} />
       </Tab>
       <Tab eventKey="favorites" title="My Favorites" disabled={!user}>
-        {user && <GameList route={route} />}
+         <GameList route={route} />
       </Tab>
     </Tabs>
   );

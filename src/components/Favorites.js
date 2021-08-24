@@ -4,7 +4,6 @@ import { Button, Card } from "react-bootstrap"
 function Favorites({favData, user, setFavData}) {
 
     const handleRemoveFav = (e) => {
-        console.log(e)
         fetch('http://localhost:5000/deletefav', {
             method: 'PATCH',
             headers: {
