@@ -1,9 +1,24 @@
 import React from "react"
 import { Button, Card } from "react-bootstrap"
 
-function Favorites({favData}) {
-    const handleRemoveFav = () => {
-        fetch('')
+function Favorites({favData, user, setFavData}) {
+
+    const handleRemoveFav = (e) => {
+        console.log(e)
+        fetch('http://localhost:5000/deletefav', {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer: ${user}`
+            },
+            body: JSON.stringify(e)
+        })
+        .then(response => response.json())
+        .then(data => {
+            setFavData(data.favorites)
+            alert(data.message)
+        })
+        .catch(err => alert(err))
     }
     return(
         <>

@@ -62,7 +62,7 @@ function GameList({route}) {
         <>
         {favData
         ? 
-        <Favorites favData={favData} />
+        <Favorites favData={favData} setFavData={setFavData} user={user}/>
         :
         gameData.map(games => {
             const game = games
