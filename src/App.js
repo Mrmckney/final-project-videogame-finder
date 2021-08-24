@@ -9,12 +9,11 @@ import './App.css'
 export const UserDetailsContext = createContext(null)
 
 function App() {
-
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(localStorage.getItem('user') || null);
   const [isLogin, setIsLogin] = useState(false)
   const [show, setShow] = useState(false)
-  const [gameData, setGameData] = useState('')
-  const [favData, setFavData] = useState('')
+  const [gameData, setGameData] = useState([])
+  const [favData, setFavData] = useState([])
 
   return (
     <>

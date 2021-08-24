@@ -27,10 +27,10 @@ function TabList() {
         {route === 'topgames' &&<GameList route={route} favData={favData} setFavData={setFavData} />}
       </Tab>
       <Tab eventKey="toprated" title="Top Rated">
-      {route === 'toprated' && <GameList route={route} favData={favData} setFavData={setFavData} />}
+        {route === 'toprated' && <GameList route={route} />}
       </Tab>
       <Tab eventKey="futurereleases" title="Future Releases">
-      {route === 'futurereleases' && <GameList route={route} /> }
+        {route === 'futurereleases' && <GameList route={route} /> }
       </Tab>
       <Tab eventKey="alphabet" title="By Genre">
         <ByGenre />
@@ -39,7 +39,7 @@ function TabList() {
         {route === 'alphabet' &&  <GameList route={route} />}
       </Tab>
       <Tab eventKey="favorites" title="My Favorites" disabled={!user}>
-      {route === 'favorites' &&  <GameList route={route} />}
+        {route === 'favorites' &&  <GameList route={route} />}
       </Tab>
     </Tabs>
   );

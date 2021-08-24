@@ -6,23 +6,29 @@ import Favorites from "./Favorites"
 function GameList({route}) {
 
     const {user, setShow, setIsLogin, gameData, setGameData, favData, setFavData} = useContext(UserDetailsContext)
-    
+
+    const loadFavorites = async () => {
+        fetch(`http://localhost:5000/favorites`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application',
+                Authorization: `Bearer: ${user}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            setFavData(data.favorites)
+        })
+        .catch(err => alert(err))
+    }
+
     useEffect(() => {
         if(route !== null) {
-            if(route === 'favorites' && user) {
-                fetch(`http://localhost:5000/${route}`, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application',
-                        Authorization: `Bearer: ${user}`
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    setFavData(data.favorites)
-                })
-                .catch(err => alert(err))
-            } else {
+            if(user) {
+                loadFavorites().then();
+            }
+            if(route !== 'favorites') {
                 fetch(`http://localhost:5000/${route}`)
                 .then(response => response.json())
                 .then(data => {
@@ -49,6 +55,7 @@ function GameList({route}) {
         .then(response => response.json())
         .then(data => {
             alert(data.message)
+            loadFavorites().then();
         })
         .catch(err => alert(err))
     }
@@ -60,12 +67,13 @@ function GameList({route}) {
 
     return (
         <>
-        {favData
+        {route === 'favorites'
         ? 
         <Favorites favData={favData} setFavData={setFavData} user={user}/>
         :
         gameData.map((games, i) => {
-            const game = games
+            const game = games;
+            const isFavorite = favData && favData?.find(({rawgid}) => rawgid === game.rawgid);
             return (
                 <Card style={{ width: '18rem', height: '620px' ,float: 'left' }} key={i}>
                     <Card.Img variant="top" src={game.poster} alt="Image Coming Soon..." style={{width: '100%', height: 150}} />
@@ -110,10 +118,11 @@ function GameList({route}) {
                         </Button>
                         :
                         <Button 
-                            variant="warning" 
+                            variant={isFavorite ? "info" : "warning"}
                             onClick={() => handleFavorite(game)}
+                            disabled={isFavorite ? true : false}
                         >
-                            Favorite
+                            {isFavorite ? "Already Favorited" : "Favorite"}
                         </Button>
                         }
                     </Card.Body>
