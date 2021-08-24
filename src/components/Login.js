@@ -13,7 +13,7 @@ function Login({isLogin, handleClose, show}) {
     const handleSignIn = () => {
         const {username, password} = userCreds
         const hashedPassword = bcrypt.hashSync(password, mySalt)
-        fetch('http://localhost:5000/login', {
+        fetch(`${process.env.REACT_APP_API_ENDPOINT}/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ function Login({isLogin, handleClose, show}) {
     const handleSignUp = () => {
         const {username, password} = userCreds
         const hashedPassword = bcrypt.hashSync(password, mySalt)
-        fetch('http://localhost:5000/signup', {
+        fetch(`${process.env.REACT_APP_API_ENDPOINT}/signup`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

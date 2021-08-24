@@ -8,7 +8,7 @@ function GameList({route}) {
     const {user, setShow, setIsLogin, gameData, setGameData, favData, setFavData} = useContext(UserDetailsContext)
 
     const loadFavorites = async () => {
-        fetch(`http://localhost:5000/favorites`, {
+        fetch(`${process.env.REACT_APP_API_ENDPOINT}/favorites`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application',
@@ -29,7 +29,7 @@ function GameList({route}) {
                 loadFavorites().then();
             }
             if(route !== 'favorites') {
-                fetch(`http://localhost:5000/${route}`)
+                fetch(`${process.env.REACT_APP_API_ENDPOINT}/${route}`)
                 .then(response => response.json())
                 .then(data => {
                     setGameData(data)
@@ -44,7 +44,7 @@ function GameList({route}) {
     }
 
     const handleFavorite = (e) => {
-        fetch('http://localhost:5000/addfav', {
+        fetch(`${process.env.REACT_APP_API_ENDPOINT}/addfav`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

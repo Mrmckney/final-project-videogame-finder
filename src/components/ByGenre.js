@@ -11,7 +11,7 @@ function ByGenre() {
 
     useEffect(() => {
         if(genre !== null){
-            fetch(`http://localhost:5000/${genre}`)
+            fetch(`${process.env.REACT_APP_API_ENDPOINT}/${genre}`)
             .then(response => response.json())
             .then(game => setGameData(game))
             .catch(err => alert(err))
