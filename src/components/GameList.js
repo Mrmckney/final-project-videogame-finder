@@ -1,5 +1,5 @@
-import React, { useEffect, useContext} from "react"
-import { Button, Card } from "react-bootstrap"
+import React, { useEffect, useContext } from "react"
+import { Button, Card, Spinner } from "react-bootstrap"
 import { UserDetailsContext } from '../App'
 import Favorites from "./Favorites"
 
@@ -39,7 +39,11 @@ function GameList({route}) {
     }, [route, user])
 
     if(!gameData) {
-        return <h1>Loading...</h1>
+        return (
+            <Spinner animation="border" role="status" >
+                <span className="visually-hidden">Loading...</span>
+            </Spinner>
+        )
     }
 
     const handleFavorite = (e) => {
@@ -57,7 +61,7 @@ function GameList({route}) {
             loadFavorites().then()
         })
         .catch(err => alert(err))
-    }
+    }   
 
     const handleSignInFav = () => {
         setIsLogin(true)
