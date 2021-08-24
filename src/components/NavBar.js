@@ -65,7 +65,6 @@ function NavBar() {
                             :
                             <>
                             <NavDropdown.Item onClick={() => {
-                                setUser(null)
                                 localStorage.clear()
                                 window.location.reload()
                             }}

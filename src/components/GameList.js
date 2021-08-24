@@ -17,7 +17,6 @@ function GameList({route}) {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             setFavData(data.favorites)
         })
         .catch(err => alert(err))
@@ -26,7 +25,7 @@ function GameList({route}) {
     useEffect(() => {
         if(route !== null) {
             if(user) {
-                loadFavorites().then();
+                loadFavorites().then()
             }
             if(route !== 'favorites') {
                 fetch(`${process.env.REACT_APP_API_ENDPOINT}/${route}`)
@@ -55,7 +54,7 @@ function GameList({route}) {
         .then(response => response.json())
         .then(data => {
             alert(data.message)
-            loadFavorites().then();
+            loadFavorites().then()
         })
         .catch(err => alert(err))
     }
