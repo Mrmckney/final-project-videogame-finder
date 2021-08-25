@@ -14,7 +14,7 @@ function App() {
   const [show, setShow] = useState(false)
   const [gameData, setGameData] = useState([])
   const [favData, setFavData] = useState([])
-  const [displayName, setDisplayName] = useState(null)
+  const [displayName, setDisplayName] = useState(localStorage.getItem('displayname'))
 
   return (
     <>

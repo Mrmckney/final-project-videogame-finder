@@ -40,6 +40,7 @@ function Login({isLogin, handleClose, show}) {
             setDisplayName(data.user.username)
             setUser(data.token)
             localStorage.setItem('user', data.token)
+            localStorage.setItem('displayname', data.user.username)
         })
         .catch(err => alert(err))
     }
@@ -67,6 +68,7 @@ function Login({isLogin, handleClose, show}) {
             setDisplayName(data.user.username)
             setUser(data.token)
             localStorage.setItem('user', data.token)
+            localStorage.setItem('displayname', data.user.username)
         })
         .then(() => handleClose(false))
         .catch(err => alert(err))
