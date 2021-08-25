@@ -11,8 +11,13 @@ function Login({isLogin, handleClose, show}) {
     const [userCreds, setUserCreds] = useState(null)
     
     const handleSignIn = () => {
+        if(userCreds === null){
+            return alert('Missing username or password')
+        }
         const {username, password} = userCreds
-        if(username && password){
+        if(username === "" || password === "" ){
+            return alert('Missing username or password')
+        }
         const hashedPassword = bcrypt.hashSync(password, mySalt)
         fetch(`${process.env.REACT_APP_API_ENDPOINT}/login`, {
             method: 'POST',
@@ -35,11 +40,15 @@ function Login({isLogin, handleClose, show}) {
         })
         .catch(err => alert(err))
     }
-    }
 
     const handleSignUp = () => {
+        if(userCreds === null){
+            return alert('Missing username or password')
+        }
         const {username, password} = userCreds
-        if(username && password){
+        if(username === "" || password === "" ){
+            return alert('Missing username or password')
+        }
         const hashedPassword = bcrypt.hashSync(password, mySalt)
         fetch(`${process.env.REACT_APP_API_ENDPOINT}/signup`, {
             method: 'POST',
@@ -55,7 +64,6 @@ function Login({isLogin, handleClose, show}) {
         })
         .then(() => handleClose(false))
         .catch(err => alert(err))
-    }
     }
 
     const handleForm = e => {
