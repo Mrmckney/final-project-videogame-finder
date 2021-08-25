@@ -37,7 +37,7 @@ function Favorites({favData, user, setFavData}) {
               <Modal.Title>Removed Favorite</Modal.Title>
             </Modal.Header>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button variant="primary" onClick={handleClose}>
                 Close
               </Button>
             </Modal.Footer>

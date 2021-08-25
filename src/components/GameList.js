@@ -84,7 +84,7 @@ function GameList({route}) {
               <Modal.Title>Favorite Added!</Modal.Title>
             </Modal.Header>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button variant="primary" onClick={handleClose}>
                 Close
               </Button>
             </Modal.Footer>
