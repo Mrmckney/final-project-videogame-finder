@@ -64,6 +64,7 @@ function Login({isLogin, handleClose, show}) {
         })
         .then(response => response.json())
         .then(data => {
+            setDisplayName(data.user.username)
             setUser(data.token)
             localStorage.setItem('user', data.token)
         })
