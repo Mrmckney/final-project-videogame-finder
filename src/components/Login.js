@@ -12,6 +12,7 @@ function Login({isLogin, handleClose, show}) {
     
     const handleSignIn = () => {
         const {username, password} = userCreds
+        if(username && password){
         const hashedPassword = bcrypt.hashSync(password, mySalt)
         fetch(`${process.env.REACT_APP_API_ENDPOINT}/login`, {
             method: 'POST',
@@ -26,15 +27,19 @@ function Login({isLogin, handleClose, show}) {
                 alert(data.message)
                 return
             }
+            if(data.message !== 'Login Attempt Failed'){
+                handleClose(false)
+            }
             setUser(data.token)
             localStorage.setItem('user', data.token)
         })
-        .then(() => handleClose(false))
         .catch(err => alert(err))
+    }
     }
 
     const handleSignUp = () => {
         const {username, password} = userCreds
+        if(username && password){
         const hashedPassword = bcrypt.hashSync(password, mySalt)
         fetch(`${process.env.REACT_APP_API_ENDPOINT}/signup`, {
             method: 'POST',
@@ -50,6 +55,7 @@ function Login({isLogin, handleClose, show}) {
         })
         .then(() => handleClose(false))
         .catch(err => alert(err))
+    }
     }
 
     const handleForm = e => {

@@ -72,13 +72,14 @@ function GameList({route}) {
         <>
         {route === 'favorites'
         ? 
-        <Favorites favData={favData} setFavData={setFavData} user={user}/>
+        <Favorites key="fav" favData={favData} setFavData={setFavData} user={user}/>
         :
         gameData.map((games, i) => {
             const game = games;
             const isFavorite = favData && favData?.find(({rawgid}) => rawgid === game.rawgid);
             return (
                 <Card style={{ width: '18rem', height: '620px' ,float: 'left' }} key={i}>
+                    <h5>{1 + i}.</h5>
                     <Card.Img variant="top" src={game.poster} alt="Image Coming Soon..." style={{width: '100%', height: 150}} />
                     <Card.Body>
                         <Card.Title>{game.name}</Card.Title>
