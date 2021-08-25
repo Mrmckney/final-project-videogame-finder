@@ -90,6 +90,7 @@ function GameList({route}) {
             </Modal.Footer>
           </Modal>
         }
+        <div class="card-container" style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
         {route === 'favorites'
         ? 
         <Favorites key="fav" favData={favData} setFavData={setFavData} user={user}/>
@@ -99,7 +100,7 @@ function GameList({route}) {
             const isFavorite = favData && favData?.find(({rawgid}) => rawgid === game.rawgid);
             return (
                 <>
-                <Card style={{ width: '18rem', height: '620px' ,float: 'left' }} key={i}>
+                <Card style={{ height: '620px', width: '18rem' }} key={i}>
                     <h5>{1 + i}.</h5>
                     <Card.Img variant="top" src={game.poster} alt="Image Coming Soon..." style={{width: '100%', height: 150}} />
                     <Card.Body>
@@ -155,6 +156,7 @@ function GameList({route}) {
                 </>
             )
         })}
+        </div>
         </>
     )
 }
