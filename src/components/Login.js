@@ -7,7 +7,7 @@ const mySalt = "$2a$10$Y5H9Mw5WmFVDB46qEhCU0u"
 
 function Login({isLogin, handleClose, show}) {
     
-    const {setUser} = useContext(UserDetailsContext)
+    const {setUser, setDisplayName} = useContext(UserDetailsContext)
     const [userCreds, setUserCreds] = useState(null)
     
     const handleSignIn = () => {
@@ -37,6 +37,7 @@ function Login({isLogin, handleClose, show}) {
             if(data.message !== 'Login Attempt Failed'){
                 handleClose(false)
             }
+            setDisplayName(data.user.username)
             setUser(data.token)
             localStorage.setItem('user', data.token)
         })

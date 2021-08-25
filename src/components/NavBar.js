@@ -6,7 +6,7 @@ import { UserDetailsContext } from '../App'
 
 function NavBar() {
 
-    const {user, show, setShow, isLogin, setIsLogin} = useContext(UserDetailsContext)
+    const {user, show, setShow, isLogin, setIsLogin, displayName} = useContext(UserDetailsContext)
 
     const handleClose = () => setShow(false)
     
@@ -22,14 +22,10 @@ function NavBar() {
                 </Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
-                    <Form className="d-flex search-bar">
-                        <FormControl
-                            type="search"
-                            placeholder="Search games here"
-                            className="mr-2"
-                            aria-label="Search"
-                        />
-                        <Button variant="outline-dark">Search</Button>
+                    <Form className="d-flex">
+                        {user &&
+                        <h5>Username: {displayName}</h5>
+                        }
                     </Form>
                     <Nav>
                         <NavDropdown
