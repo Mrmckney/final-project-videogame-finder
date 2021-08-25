@@ -1,11 +1,12 @@
-import React, { useEffect, useContext } from "react"
-import { Button, Card, Spinner } from "react-bootstrap"
+import React, { useEffect, useContext, useState } from "react"
+import { Button, Card, Spinner, Modal } from "react-bootstrap"
 import { UserDetailsContext } from '../App'
 import Favorites from "./Favorites"
 
 function GameList({route}) {
 
     const {user, setShow, setIsLogin, gameData, setGameData, favData, setFavData} = useContext(UserDetailsContext)
+    const [addedFav, setAddedFav] = useState(null)
 
     const loadFavorites = async () => {
         fetch(`${process.env.REACT_APP_API_ENDPOINT}/favorites`, {
@@ -57,7 +58,7 @@ function GameList({route}) {
         })
         .then(response => response.json())
         .then(data => {
-            alert(data.message)
+            setAddedFav("Added Favorite")
             loadFavorites().then()
         })
         .catch(err => alert(err))
@@ -68,8 +69,27 @@ function GameList({route}) {
         setShow(true)
     }
 
+    const handleClose = () => setAddedFav(null)
+
     return (
         <>
+        {addedFav === "Added Favorite" &&
+            <Modal
+            show={addedFav}
+            onHide={handleClose}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Header>
+              <Modal.Title>Favorite Added!</Modal.Title>
+            </Modal.Header>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        }
         {route === 'favorites'
         ? 
         <Favorites key="fav" favData={favData} setFavData={setFavData} user={user}/>
@@ -78,6 +98,7 @@ function GameList({route}) {
             const game = games;
             const isFavorite = favData && favData?.find(({rawgid}) => rawgid === game.rawgid);
             return (
+                <>
                 <Card style={{ width: '18rem', height: '620px' ,float: 'left' }} key={i}>
                     <h5>{1 + i}.</h5>
                     <Card.Img variant="top" src={game.poster} alt="Image Coming Soon..." style={{width: '100%', height: 150}} />
@@ -131,6 +152,7 @@ function GameList({route}) {
                         }
                     </Card.Body>
                 </Card>
+                </>
             )
         })}
         </>

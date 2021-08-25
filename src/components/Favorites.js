@@ -1,7 +1,9 @@
-import React from "react"
-import { Button, Card } from "react-bootstrap"
+import React, { useState } from "react"
+import { Button, Card, Modal } from "react-bootstrap"
 
 function Favorites({favData, user, setFavData}) {
+
+    const [removedFav, setRemovedFav] = useState(null)
 
     const handleRemoveFav = (e) => {
         fetch(`${process.env.REACT_APP_API_ENDPOINT}/deletefav`, {
@@ -15,12 +17,32 @@ function Favorites({favData, user, setFavData}) {
         .then(response => response.json())
         .then(data => {
             setFavData(data.favorites)
-            alert(data.message)
+            setRemovedFav("Removed Favorite")
         })
         .catch(err => alert(err))
     }
+
+    const handleClose = () => setRemovedFav(null)
+
     return(
         <>
+        {removedFav === "Removed Favorite" &&
+            <Modal
+            show={removedFav}
+            onHide={handleClose}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Header>
+              <Modal.Title>Removed Favorite</Modal.Title>
+            </Modal.Header>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        }
         {favData &&
         favData.map((games, i) => {
             const game = games
