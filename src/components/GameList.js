@@ -100,7 +100,7 @@ function GameList({route}) {
             const isFavorite = favData && favData?.find(({rawgid}) => rawgid === game.rawgid);
             return (
                 <>
-                <Card style={{ height: '620px', width: '18rem' }} key={i}>
+                <Card style={{ height: '760px', width: '18rem' }} key={i}>
                     <h5>{1 + i}.</h5>
                     <Card.Img variant="top" src={game.poster} alt="Image Coming Soon..." style={{width: '100%', height: 150}} />
                     <Card.Body>

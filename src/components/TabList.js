@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { Tabs, Tab } from 'react-bootstrap'
 
 import ByGenre from './ByGenre';
+import ByPlatform from './ByPlatform';
 import GameList from './GameList';
 
 import '../App.css'
@@ -37,6 +38,12 @@ function TabList() {
         <br />
         <br />
         {route === 'alphabet' &&  <GameList route={route} />}
+      </Tab>
+      <Tab eventKey="platform" title="By Platform">
+        <ByPlatform />
+        <br />
+        <br />
+        {route === 'platform' &&  <GameList route={route} />}
       </Tab>
       <Tab eventKey="favorites" title="My Favorites" disabled={!user}>
         {route === 'favorites' &&  <GameList route={route} />}

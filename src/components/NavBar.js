@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Navbar, Container, NavDropdown, Nav, Form, FormControl, Button } from 'react-bootstrap'
+import { Navbar, Container, NavDropdown, Nav, Form } from 'react-bootstrap'
 import Login from './Login'
 import logo from '../image/Dog-Logo.png'
 import { UserDetailsContext } from '../App'

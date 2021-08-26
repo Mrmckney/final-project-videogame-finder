@@ -48,7 +48,7 @@ function Favorites({favData, user, setFavData}) {
             const game = games
             return (
                 <>
-                <Card style={{ width: '18rem', height: '620px'}} key={i}>
+                <Card style={{ width: '18rem', height: '760px'}} key={i}>
                     <Card.Img variant="top" src={game.poster} alt="Image Coming Soon..." style={{width: '100%', height: 150}} />
                     <Card.Body>
                         <Card.Title>{game.name}</Card.Title>
