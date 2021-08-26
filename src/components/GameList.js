@@ -75,22 +75,22 @@ function GameList({route}) {
         <>
         {addedFav === "Added Favorite" &&
             <Modal
-            show={addedFav}
-            onHide={handleClose}
-            backdrop="static"
-            keyboard={false}
-          >
-            <Modal.Header>
-              <Modal.Title>Favorite Added!</Modal.Title>
-            </Modal.Header>
-            <Modal.Footer>
-              <Button variant="primary" onClick={handleClose}>
-                Close
-              </Button>
-            </Modal.Footer>
-          </Modal>
+                show={addedFav}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Header>
+                    <Modal.Title>Favorite Added!</Modal.Title>
+                </Modal.Header>
+                <Modal.Footer>
+                    <Button variant="primary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         }
-        <div class="card-container" style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
+        <div className="card-container" style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
         {route === 'favorites'
         ? 
         <Favorites key="fav" favData={favData} setFavData={setFavData} user={user}/>
