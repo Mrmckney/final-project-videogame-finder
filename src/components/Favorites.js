@@ -44,11 +44,9 @@ function Favorites({favData, user, setFavData}) {
           </Modal>
         }
         {favData &&
-        favData.map((games, i) => {
-            const game = games
+        favData.map((game) => {
             return (
-                <>
-                <Card style={{ width: '18rem', height: '760px'}} key={i}>
+                <Card style={{ width: '18rem', height: '760px'}} key={game._id}>
                     <Card.Img variant="top" src={game.poster} alt="Image Coming Soon..." style={{width: '100%', height: 150}} />
                     <Card.Body>
                         <Card.Title>{game.name}</Card.Title>
@@ -88,7 +86,6 @@ function Favorites({favData, user, setFavData}) {
                         </Button>
                     </Card.Body>
                 </Card>
-                </>
             )
         })}
         </>

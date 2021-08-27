@@ -26,7 +26,7 @@ function TabList() {
       }}
       className="mb-3 tab-list">
       <Tab eventKey="topgames" title="Top Games">
-        {route === 'topgames' &&<GameList route={route} favData={favData} setFavData={setFavData} />}
+        {route === 'topgames' && <GameList route={route} favData={favData} setFavData={setFavData} />}
       </Tab>
       <Tab eventKey="toprated" title="Top Rated">
         {route === 'toprated' && <GameList route={route} />}

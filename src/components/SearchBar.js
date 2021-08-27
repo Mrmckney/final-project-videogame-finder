@@ -7,15 +7,14 @@ function SearchBar() {
 
     const {setGameData} = useContext(UserDetailsContext)
 
-    const [word, setWord] = useState({})
+    const [word, setWord] = useState('')
 
     useEffect(() => {
-        if(word !== {}){
+        if(word.trim() !== ''){
             fetch(`${process.env.REACT_APP_API_ENDPOINT}/search/search?query=${word}`)
             .then(response => response.json())
             .then(game => {
-                    setGameData(game)
-                
+                setGameData(game)
             })
             .catch(err => alert(err))
         }
