@@ -8,6 +8,7 @@ import GameList from './GameList';
 import '../App.css'
 
 import { UserDetailsContext } from '../App'
+import SearchBar from './SearchBar';
 
 function TabList() {
 
@@ -44,6 +45,12 @@ function TabList() {
         <br />
         <br />
         {route === 'platform' &&  <GameList route={route} />}
+      </Tab>
+      <Tab eventKey="search" title="Search">
+        <SearchBar />
+        <br />
+        <br />
+        {route === 'search' &&  <GameList route={route} />}
       </Tab>
       <Tab eventKey="favorites" title="My Favorites" disabled={!user}>
         {route === 'favorites' &&  <GameList route={route} />}
