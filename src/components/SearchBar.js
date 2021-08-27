@@ -24,7 +24,7 @@ function SearchBar() {
         <Form className="d-flex">
             <FormControl
                 type="search"
-                placeholder="🔎  Search game here!"
+                placeholder="Search game here!"
                 className="mr-2"
                 aria-label="Search"
                 style={{width: '300px', height: '50px', marginLeft: '20px', borderColor: 'black'}}
