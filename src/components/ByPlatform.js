@@ -36,6 +36,7 @@ function ByPlatform() {
                     <Dropdown.Item value="byplatform/PlayStation 2">PlayStation 2</Dropdown.Item>
                     <Dropdown.Item value="byplatform/PS Vita">PS Vita</Dropdown.Item>
                     <Dropdown.Item value="byplatform/PSP">PSP</Dropdown.Item>
+                    <Dropdown.Item value="byplatform/Web">Web</Dropdown.Item>
                     <Dropdown.Item value="byplatform/PC">PC</Dropdown.Item>
                     <Dropdown.Item value="byplatform/macOS">macOS</Dropdown.Item>
                     <Dropdown.Item value="byplatform/Linux">Linux</Dropdown.Item>
