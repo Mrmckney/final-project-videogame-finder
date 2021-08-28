@@ -4,6 +4,7 @@ import { Button, Card, Modal } from "react-bootstrap"
 function Favorites({favData, user, setFavData}) {
 
     const [removedFav, setRemovedFav] = useState(null)
+    const [modalFav, setModalFav] = useState([])
 
     const handleRemoveFav = (e) => {
         fetch(`${process.env.REACT_APP_API_ENDPOINT}/deletefav`, {
@@ -36,6 +37,38 @@ function Favorites({favData, user, setFavData}) {
             <Modal.Header>
               <Modal.Title>Removed Favorite</Modal.Title>
             </Modal.Header>
+            <Modal.Body>
+                    <img src={modalFav[0].poster} alt="Image Coming Soon..." style={{width: 250, height: 150}} />
+                    <br />
+                    <h3>{modalFav[0].name}</h3>
+                    <br />
+                        <span>
+                                <b>Genres:</b> 
+                                <br />
+                                {modalFav[0].genres.join(' | ')}
+                        </span>
+                    <br />
+                    <br />
+                        <span>
+                            <b>Release Date:</b> 
+                            <br />
+                            {modalFav[0].releaseDate}
+                        </span>
+                    <br />
+                    <br />
+                        <span>
+                            <b>Rating:</b> 
+                            <br />
+                            ⭐️{modalFav[0].rating}
+                        </span>
+                    <br />
+                    <br />
+                        <span>
+                            <b>Platforms:</b> 
+                            <br />
+                            {modalFav[0].platforms.join(' | ')}
+                        </span>
+                </Modal.Body>
             <Modal.Footer>
               <Button variant="primary" onClick={handleClose}>
                 Close
@@ -80,7 +113,10 @@ function Favorites({favData, user, setFavData}) {
                         </Card.Text>
                         <Button 
                             variant="danger" 
-                            onClick={() => handleRemoveFav(game)}
+                            onClick={() => {
+                                handleRemoveFav(game)
+                                setModalFav([game])
+                            }}
                         >
                             Remove Favorite
                         </Button>

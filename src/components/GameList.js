@@ -7,6 +7,7 @@ function GameList({route}) {
 
     const {user, setShow, setIsLogin, gameData, setGameData, favData, setFavData} = useContext(UserDetailsContext)
     const [addedFav, setAddedFav] = useState(null)
+    const [modalFav, setModalFav] = useState([])
 
     const loadFavorites = async () => {
         fetch(`${process.env.REACT_APP_API_ENDPOINT}/favorites`, {
@@ -83,6 +84,38 @@ function GameList({route}) {
                 <Modal.Header>
                     <Modal.Title>Favorite Added!</Modal.Title>
                 </Modal.Header>
+                <Modal.Body>
+                    <img src={modalFav[0].poster} alt="Image Coming Soon..." style={{width: 250, height: 150}} />
+                    <br />
+                    <h3>{modalFav[0].name}</h3>
+                    <br />
+                        <span>
+                                <b>Genres:</b> 
+                                <br />
+                                {modalFav[0].genres.join(' | ')}
+                        </span>
+                    <br />
+                    <br />
+                        <span>
+                            <b>Release Date:</b> 
+                            <br />
+                            {modalFav[0].releaseDate}
+                        </span>
+                    <br />
+                    <br />
+                        <span>
+                            <b>Rating:</b> 
+                            <br />
+                            ⭐️{modalFav[0].rating}
+                        </span>
+                    <br />
+                    <br />
+                        <span>
+                            <b>Platforms:</b> 
+                            <br />
+                            {modalFav[0].platforms.join(' | ')}
+                        </span>
+                </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={handleClose}>
                         Close
@@ -143,7 +176,10 @@ function GameList({route}) {
                         :
                         <Button 
                             variant={isFavorite ? "info" : "warning"}
-                            onClick={() => handleFavorite(game)}
+                            onClick={() => {
+                                handleFavorite(game)
+                                setModalFav([game])
+                            }}
                             disabled={isFavorite ? true : false}
                         >
                             {isFavorite ? "Already Favorited" : "Favorite"}
