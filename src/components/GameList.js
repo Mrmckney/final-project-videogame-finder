@@ -85,7 +85,7 @@ function GameList({route}) {
                     <Modal.Title>Favorite Added!</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <img src={modalFav[0].poster} alt="Image Coming Soon..." style={{width: 250, height: 150}} />
+                    <img src={modalFav[0].poster} alt="Coming Soon..." style={{width: 250, height: 150}} />
                     <br />
                     <h3>{modalFav[0].name}</h3>
                     <br />
