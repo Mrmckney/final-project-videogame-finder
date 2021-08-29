@@ -27,7 +27,7 @@ function SearchBar() {
                 placeholder="Search game here!"
                 className="mr-2"
                 aria-label="Search"
-                style={{width: '350px', height: '50px', marginLeft: '20px', borderColor: 'black', borderWidth: 3, borderColor: 'slategrey'}}
+                style={{width: '350px', height: '50px', marginLeft: '20px', borderWidth: 3, borderColor: 'slategrey'}}
                 onChange={e => setWord(e.target.value)}
             />
         </Form>
