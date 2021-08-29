@@ -170,7 +170,6 @@ function GameList({route}) {
                         <Button 
                             variant="dark" 
                             onClick={handleSignInFav}
-                            style={{}}
                         >
                             Sign In to Favorite
                         </Button>

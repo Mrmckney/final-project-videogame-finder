@@ -5,7 +5,7 @@ import { UserDetailsContext } from '../App'
 
 const mySalt = "$2a$10$Y5H9Mw5WmFVDB46qEhCU0u"
 
-function Login({isLogin, handleClose, show}) {
+function Login({isLogin, setIsLogin, handleClose, show}) {
     
     const {setUser, setDisplayName} = useContext(UserDetailsContext)
     const [userCreds, setUserCreds] = useState(null)
@@ -97,6 +97,16 @@ function Login({isLogin, handleClose, show}) {
                     </FloatingLabel>
                 </Modal.Body>
                 <Modal.Footer>
+                    {isLogin 
+                    ?
+                    <Button variant="outline-secondary" style={{marginRight: 244}} onClick={() => setIsLogin(false)}>
+                        Switch to Sign up
+                    </Button>
+                    :
+                    <Button variant="outline-secondary" style={{marginRight: 244}} onClick={() => setIsLogin(true)}>
+                        Switch to Login
+                    </Button>
+                    }
                     {isLogin 
                     ?
                     <Button variant="primary" onClick={handleSignIn}>

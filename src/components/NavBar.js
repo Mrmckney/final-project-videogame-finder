@@ -74,7 +74,7 @@ function NavBar() {
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-        <Login show={show} isLogin={isLogin} handleClose={handleClose} />
+        <Login show={show} isLogin={isLogin} setIsLogin={setIsLogin} handleClose={handleClose} />
         </>
     )
 }
