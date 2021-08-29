@@ -49,7 +49,6 @@ function TabList() {
       <Tab eventKey="search" title="Search">
         <SearchBar />
         <br />
-        <br />
         {route === 'search' &&  <GameList route={route} />}
       </Tab>
       <Tab eventKey="favorites" title="My Favorites" disabled={!user}>
