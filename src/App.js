@@ -22,6 +22,7 @@ function App() {
       <UserDetailsContext.Provider value={{ user, setUser, show, setShow, isLogin, setIsLogin, gameData, setGameData, favData, setFavData, displayName, setDisplayName }}>
       <NavBar  />
       <TabList />
+      <h3 style={{textAlign: 'center'}}>Ancient Games</h3>
       <HomePageGames />
       </UserDetailsContext.Provider>
     </>
