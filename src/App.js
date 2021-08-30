@@ -2,6 +2,7 @@ import React, { useState, createContext } from 'react';
 
 import NavBar from './components/NavBar';
 import TabList from './components/TabList';
+import HomePageGames from './components/HomePageGames';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
@@ -21,6 +22,7 @@ function App() {
       <UserDetailsContext.Provider value={{ user, setUser, show, setShow, isLogin, setIsLogin, gameData, setGameData, favData, setFavData, displayName, setDisplayName }}>
       <NavBar  />
       <TabList />
+      <HomePageGames />
       </UserDetailsContext.Provider>
     </>
   );

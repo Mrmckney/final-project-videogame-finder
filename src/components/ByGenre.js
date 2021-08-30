@@ -40,6 +40,7 @@ function ByGenre() {
                     <Dropdown.Item value="bygenre/Platformer">Platformer</Dropdown.Item>
                     <Dropdown.Item value="bygenre/Arcade">Arcade</Dropdown.Item>
                     <Dropdown.Item value="bygenre/Massively Multiplayer">MMO (Massively Multiplayer Online)</Dropdown.Item>
+                    <Dropdown.Item value="bygenre/Educational">Educational</Dropdown.Item>
                     <Dropdown.Item value="bygenre/Casual">Casual</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
