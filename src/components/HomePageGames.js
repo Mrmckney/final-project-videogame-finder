@@ -12,6 +12,13 @@ function HomePageGames() {
         .catch(err => alert(err))
     }, [])
 
+    if(!homeGames) {
+        return (
+            <Spinner animation="border" role="status" >
+                <span className="visually-hidden">Loading...</span>
+            </Spinner>
+        )
+    }
     return (
         <>
         <div className="card-container" style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
