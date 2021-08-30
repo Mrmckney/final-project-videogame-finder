@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card } from "react-bootstrap";
+import { Card, Spinner } from "react-bootstrap";
 
 function HomePageGames() {
 
@@ -19,6 +19,7 @@ function HomePageGames() {
             </Spinner>
         )
     }
+
     return (
         <>
         <div className="card-container" style={{display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
