@@ -13,16 +13,14 @@ import SearchBar from './SearchBar';
 function TabList() {
 
   const [route, setRoute] = useState(null)
-  const {user, favData, setFavData} = useContext(UserDetailsContext)
+  const {user, favData, setFavData, setHome} = useContext(UserDetailsContext)
 
   return (
     <Tabs defaultActiveKey="list"
       id="uncontrolled-tab-example"
       onSelect={key => {
-        if(key !== "favorites"){
-          setFavData('')
-        }
         setRoute(key)
+        setHome(false)
       }}
       className="mb-3 tab-list">
       <Tab eventKey="topgames" title="Top Games">

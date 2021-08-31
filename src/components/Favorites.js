@@ -29,7 +29,7 @@ function Favorites({favData, user, setFavData}) {
         <>
         {removedFav === "Removed Favorite" &&
             <Modal
-            show={removedFav}
+            show={true}
             onHide={handleClose}
             backdrop="static"
             keyboard={false}

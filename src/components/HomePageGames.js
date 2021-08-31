@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, Spinner } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 function HomePageGames() {
 
@@ -11,14 +11,6 @@ function HomePageGames() {
         .then(game => setHomeGames(game))
         .catch(err => alert(err))
     }, [])
-
-    if(!homeGames) {
-        return (
-            <Spinner animation="border" role="status" >
-                <span className="visually-hidden">Loading...</span>
-            </Spinner>
-        )
-    }
 
     return (
         <>

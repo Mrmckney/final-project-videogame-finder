@@ -76,7 +76,7 @@ function GameList({route}) {
         <>
         {addedFav === "Added Favorite" &&
             <Modal
-                show={addedFav}
+                show={true}
                 onHide={handleClose}
                 backdrop="static"
                 keyboard={false}
