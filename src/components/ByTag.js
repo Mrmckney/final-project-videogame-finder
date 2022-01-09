@@ -3,7 +3,7 @@ import { Dropdown } from 'react-bootstrap'
 import '../App.css'
 import { UserDetailsContext } from '../App'
 
-function ByPlatform() {
+function ByTag() {
 
     const {setGameData} = useContext(UserDetailsContext)
 
@@ -81,4 +81,4 @@ function ByPlatform() {
     )
 }
 
-export default ByPlatform
+export default ByTag

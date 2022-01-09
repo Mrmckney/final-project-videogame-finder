@@ -3,13 +3,13 @@ import { Tabs, Tab } from 'react-bootstrap'
 
 import ByGenre from './ByGenre';
 import ByPlatform from './ByPlatform';
-import ByTag from './ByTag'
 import GameList from './GameList';
+import ByTag from './ByTag';
+import SearchBar from './SearchBar';
 
 import '../App.css'
 
 import { UserDetailsContext } from '../App'
-import SearchBar from './SearchBar';
 
 function TabList() {
 
