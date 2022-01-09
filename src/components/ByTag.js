@@ -21,7 +21,7 @@ function ByTag() {
     return(
         <>
             <Dropdown className="genre-dropdown">
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                <Dropdown.Toggle variant="dark" id="dropdown-basic">
                     Tags
                 </Dropdown.Toggle>
 

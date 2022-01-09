@@ -35,3 +35,8 @@
     margin-top: 28px;
     margin-right: 24px;
 }
+
+.dropdown-menu {
+    overflow-y:auto; 
+    max-height:30vh
+   }

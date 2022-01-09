@@ -170,7 +170,7 @@ function GameList({route}) {
                             <span>
                                 <b>ESRB:</b> 
                                 <br />
-                                {game.esrb === null ? 'Not Rated' : game.esrb.name}
+                                {game.esrb === null ? 'Unrated' : game.esrb.name}
                             </span>
                         </Card.Text>
                     </Card.Body>

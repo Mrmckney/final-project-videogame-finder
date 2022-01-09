@@ -1,10 +1,11 @@
 import { useContext, useState } from 'react';
 import { Tabs, Tab } from 'react-bootstrap'
 
+import GameList from './GameList';
 import ByGenre from './ByGenre';
 import ByPlatform from './ByPlatform';
-import GameList from './GameList';
 import ByTag from './ByTag';
+import ByEsrb from './ByEsrb';
 import SearchBar from './SearchBar';
 
 import '../App.css'
@@ -45,16 +46,22 @@ function TabList() {
         <br />
         {route === 'platform' &&  <GameList route={route} />}
       </Tab>
-      <Tab eventKey="search" title="Search">
-        <SearchBar />
-        <br />
-        {route === 'search' &&  <GameList route={route} />}
-      </Tab>
       <Tab eventKey="tag" title="By Tags">
         <ByTag />
         <br />
         <br />
         {route === 'tag' &&  <GameList route={route} />}
+      </Tab>
+      <Tab eventKey="esrb" title="By ESRB">
+        <ByEsrb />
+        <br />
+        <br />
+        {route === 'esrb' &&  <GameList route={route} />}
+      </Tab>
+      <Tab eventKey="search" title="Search">
+        <SearchBar />
+        <br />
+        {route === 'search' &&  <GameList route={route} />}
       </Tab>
       <Tab eventKey="favorites" title="My Favorites" disabled={!user}>
         {route === 'favorites' &&  <GameList route={route} />}
