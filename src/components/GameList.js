@@ -6,6 +6,7 @@ import Favorites from "./Favorites"
 function GameList({route}) {
 
     const {user, setShow, setIsLogin, gameData, setGameData, favData, setFavData} = useContext(UserDetailsContext)
+    console.log(gameData)
     const [addedFav, setAddedFav] = useState(null)
     const [modalFav, setModalFav] = useState([])
 
@@ -132,7 +133,7 @@ function GameList({route}) {
         gameData.map((game, i) => {
             const isFavorite = favData && favData?.find(({rawgid}) => rawgid === game.rawgid);
             return (
-                <Card style={{ height: '760px', width: '18rem' }} key={game._id}>
+                <Card style={{ height: '800px', width: '18rem' }} key={game._id}>
                     <h5>{1 + i}.</h5>
                     <Card.Img variant="top" src={game.poster} alt="Image Coming Soon..." style={{width: '100%', height: 150}} />
                     <Card.Body>
@@ -165,27 +166,34 @@ function GameList({route}) {
                                 {game.platforms.join(' | ')}
                             </span>
                         </Card.Text>
-                        {!user 
-                        ?
-                        <Button 
-                            variant="dark" 
-                            onClick={handleSignInFav}
-                        >
-                            Sign In to Favorite
-                        </Button>
-                        :
-                        <Button 
-                            variant={isFavorite ? "info" : "warning"}
-                            onClick={() => {
-                                handleFavorite(game)
-                                setModalFav([game])
-                            }}
-                            disabled={isFavorite ? true : false}
-                        >
-                            {isFavorite ? "Already Favorited" : "Favorite"}
-                        </Button>
-                        }
+                        <Card.Text>
+                            <span>
+                                <b>ESRB:</b> 
+                                <br />
+                                {game.esrb === null ? 'Not Rated' : game.esrb.name}
+                            </span>
+                        </Card.Text>
                     </Card.Body>
+                    {!user 
+                    ?
+                    <Button 
+                        variant="dark" 
+                        onClick={handleSignInFav}
+                    >
+                        Sign In to Favorite
+                    </Button>
+                    :
+                    <Button 
+                        variant={isFavorite ? "info" : "warning"}
+                        onClick={() => {
+                            handleFavorite(game)
+                            setModalFav([game])
+                        }}
+                        disabled={isFavorite ? true : false}
+                    >
+                        {isFavorite ? "Already Favorited" : "Favorite"}
+                    </Button>
+                    }
                 </Card>
             )
         })}

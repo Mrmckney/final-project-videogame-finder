@@ -3,6 +3,7 @@ import { Tabs, Tab } from 'react-bootstrap'
 
 import ByGenre from './ByGenre';
 import ByPlatform from './ByPlatform';
+import ByTag from './ByTag'
 import GameList from './GameList';
 
 import '../App.css'
@@ -48,6 +49,12 @@ function TabList() {
         <SearchBar />
         <br />
         {route === 'search' &&  <GameList route={route} />}
+      </Tab>
+      <Tab eventKey="tag" title="By Tags">
+        <ByTag />
+        <br />
+        <br />
+        {route === 'tag' &&  <GameList route={route} />}
       </Tab>
       <Tab eventKey="favorites" title="My Favorites" disabled={!user}>
         {route === 'favorites' &&  <GameList route={route} />}
