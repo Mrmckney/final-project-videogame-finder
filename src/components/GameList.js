@@ -6,7 +6,6 @@ import Favorites from "./Favorites"
 function GameList({route}) {
 
     const {user, setShow, setIsLogin, gameData, setGameData, favData, setFavData} = useContext(UserDetailsContext)
-    console.log(gameData)
     const [addedFav, setAddedFav] = useState(null)
     const [modalFav, setModalFav] = useState([])
 
