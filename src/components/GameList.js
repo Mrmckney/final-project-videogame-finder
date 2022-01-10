@@ -116,6 +116,13 @@ function GameList({route}) {
                             <br />
                             {modalFav[0].platforms.join(' | ')}
                         </span>
+                    <br />
+                    <br />
+                        <span>
+                            <b>ESRB:</b> 
+                            <br />
+                            {modalFav[0].esrb === null ? "Unrated" : modalFav[0].esrb.name}
+                        </span>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" onClick={handleClose}>

@@ -69,6 +69,13 @@ function Favorites({favData, user, setFavData}) {
                             <br />
                             {modalFav[0].platforms.join(' | ')}
                         </span>
+                    <br />
+                    <br />
+                        <span>
+                            <b>ESRB:</b> 
+                            <br />
+                            {modalFav[0].esrb === null ? "Unrated" : modalFav[0].esrb.name}
+                        </span>
                 </Modal.Body>
             <Modal.Footer>
               <Button variant="primary" onClick={handleClose}>
@@ -80,7 +87,7 @@ function Favorites({favData, user, setFavData}) {
         {favData &&
         favData.map((game) => {
             return (
-                <Card style={{ width: '18rem', height: '760px'}} key={game._id}>
+                <Card style={{ width: '18rem', height: '800px'}} key={game._id}>
                     <Card.Img variant="top" src={game.poster} alt="Image Coming Soon..." style={{width: '100%', height: 150}} />
                     <Card.Body>
                         <Card.Title>{game.name}</Card.Title>
@@ -112,16 +119,23 @@ function Favorites({favData, user, setFavData}) {
                                 {game.platforms.join(' | ')}
                             </span>
                         </Card.Text>
-                        <Button 
-                            variant="danger" 
-                            onClick={() => {
-                                handleRemoveFav(game)
-                                setModalFav([game])
-                            }}
-                        >
-                            Remove Favorite
-                        </Button>
+                        <Card.Text>
+                            <span>
+                                <b>ESRB:</b> 
+                                <br />
+                                {game.esrb === null ? 'Unrated' : game.esrb.name}
+                            </span>
+                        </Card.Text>
                     </Card.Body>
+                    <Button 
+                        variant="danger" 
+                        onClick={() => {
+                            handleRemoveFav(game)
+                            setModalFav([game])
+                        }}
+                    >
+                        Remove Favorite
+                    </Button>
                 </Card>
             )
         })}
