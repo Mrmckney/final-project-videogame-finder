@@ -9,6 +9,7 @@ function Login({isLogin, setIsLogin, handleClose, show}) {
     
     const {setUser, setDisplayName} = useContext(UserDetailsContext)
     const [userCreds, setUserCreds] = useState(null)
+    const [showPassword, setShowPassword] = useState(false)
     
     const handleSignIn = () => {
         if(!userCreds){
@@ -82,6 +83,10 @@ function Login({isLogin, setIsLogin, handleClose, show}) {
         setUserCreds({ ...userCreds, [e.target.name]: e.target.value})
     }
 
+    const togglePassword = () => {
+        setShowPassword(!showPassword)
+    }
+
     return(
         <>
             <Modal show={show} onHide={handleClose}>
@@ -97,8 +102,14 @@ function Login({isLogin, setIsLogin, handleClose, show}) {
                         <Form.Control type="text" name="username" placeholder="Username" onChange={handleForm} />
                     </FloatingLabel>
                     <FloatingLabel controlId="floatingPassword" label="Password">
-                        <Form.Control type="password" name="password" placeholder="Password" onChange={handleForm} />
+                        <Form.Control type={showPassword ? "text" : "password"} name="password" placeholder="Password" onChange={handleForm} />
                     </FloatingLabel>
+                    <br />
+                    <Form.Check
+                        required
+                        label="Show Password"
+                        onClick={togglePassword}
+                    />
                 </Modal.Body>
                 <Modal.Footer>
                     {isLogin 
