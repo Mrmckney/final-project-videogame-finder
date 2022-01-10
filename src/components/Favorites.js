@@ -28,12 +28,12 @@ function Favorites({favData, user, setFavData}) {
     return(
         <>
         {removedFav === "Removed Favorite" &&
-            <Modal
+        <Modal
             show={true}
             onHide={handleClose}
             backdrop="static"
             keyboard={false}
-          >
+        >
             <Modal.Header>
               <Modal.Title>Removed Favorite</Modal.Title>
             </Modal.Header>
@@ -44,9 +44,9 @@ function Favorites({favData, user, setFavData}) {
                     <h3>{modalFav[0].name}</h3>
                     <br />
                         <span>
-                                <b>Genres:</b> 
-                                <br />
-                                {modalFav[0].genres.join(' | ')}
+                            <b>Genres:</b> 
+                            <br />
+                            {modalFav[0].genres.join(' | ')}
                         </span>
                     <br />
                     <br />
@@ -75,7 +75,7 @@ function Favorites({favData, user, setFavData}) {
                 Close
               </Button>
             </Modal.Footer>
-          </Modal>
+        </Modal>
         }
         {favData &&
         favData.map((game) => {
