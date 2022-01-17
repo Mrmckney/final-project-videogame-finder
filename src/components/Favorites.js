@@ -38,7 +38,7 @@ function Favorites({favData, user, setFavData}) {
               <Modal.Title>Removed Favorite</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                    <img src={modalFav[0].poster} alt="Coming Soon..." style={{width: 250, height: 150}} />
+                    <img className="modal-img" src={modalFav[0].poster} alt="Coming Soon..." />
                     <br />
                     <br />
                     <h3>{modalFav[0].name}</h3>
@@ -87,8 +87,8 @@ function Favorites({favData, user, setFavData}) {
         {favData &&
         favData.map((game) => {
             return (
-                <Card style={{ width: '18rem', height: '800px'}} key={game._id}>
-                    <Card.Img variant="top" src={game.poster} alt="Image Coming Soon..." style={{width: '100%', height: 150}} />
+                <Card className="game-list" key={game._id}>
+                    <Card.Img className="game-img" variant="top" src={game.poster} alt="Image Coming Soon..." />
                     <Card.Body>
                         <Card.Title>{game.name}</Card.Title>
                         <Card.Text>

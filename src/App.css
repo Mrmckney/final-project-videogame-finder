@@ -30,6 +30,21 @@
     margin-bottom: 50px;
 }
 
+.game-list { 
+    height: 800px;
+    width: 18rem
+}
+
+.game-img {
+    width: 100%;
+    height: 150px
+}
+
+.modal-img {
+    width: 250px;
+    height: 150px
+}
+
 .button-star {
     height: 40px;
     margin-top: 28px;

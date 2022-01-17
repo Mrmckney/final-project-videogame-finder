@@ -2,6 +2,7 @@ import React, { useEffect, useContext, useState } from "react"
 import { Button, Card, Spinner, Modal } from "react-bootstrap"
 import { UserDetailsContext } from '../App'
 import Favorites from "./Favorites"
+import '../App.css'
 
 function GameList({route}) {
 
@@ -85,7 +86,7 @@ function GameList({route}) {
                     <Modal.Title>Favorite Added!</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <img src={modalFav[0].poster} alt="Coming Soon..." style={{width: 250, height: 150}} />
+                    <img className="modal-img" src={modalFav[0].poster} alt="Coming Soon..." />
                     <br />
                     <br />
                     <h3>{modalFav[0].name}</h3>
@@ -139,9 +140,9 @@ function GameList({route}) {
         gameData.map((game, i) => {
             const isFavorite = favData && favData?.find(({rawgid}) => rawgid === game.rawgid);
             return (
-                <Card style={{ height: '800px', width: '18rem' }} key={game._id}>
+                <Card className="game-list" key={game._id}>
                     <h5>{1 + i}.</h5>
-                    <Card.Img variant="top" src={game.poster} alt="Image Coming Soon..." style={{width: '100%', height: 150}} />
+                    <Card.Img className="game-img" variant="top" src={game.poster} alt="Image Coming Soon..." />
                     <Card.Body>
                         <Card.Title>{game.name}</Card.Title>
                         <Card.Text>
