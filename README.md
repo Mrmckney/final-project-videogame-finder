@@ -1,5 +1,7 @@
 # Video Game Finder
 
+## Over 550,000 games to search
+
 ![Alt Text](Main.gif)
 
 ## After logged in 
